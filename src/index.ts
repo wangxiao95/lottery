@@ -1,3 +1,3 @@
 import shuangSeQiu from './core/ball'
 
-console.log(shuangSeQiu())
+console.log(shuangSeQiu(), 'test')
