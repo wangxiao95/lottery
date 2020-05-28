@@ -56,7 +56,7 @@ class Ball {
 
 const shuangSeQiu: Function = function (red: number[] = [], blue: number = null): Result {
 
-  const ball: Ball = new Ball()
+  const ball: Ball = new Ball(red, blue)
 
   const result: Result = ball.outputResult()
 
