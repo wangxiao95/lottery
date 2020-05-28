@@ -2,7 +2,13 @@ const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 通过 npm 安装
 const webpack = require('webpack') // 用于访问内置插件
 
+function resolve (dir) {
+  return path.join(__dirname, '..', dir)
+}
+
+
 module.exports = {
+  context: path.resolve(__dirname, '../'),
   entry: './src/index.tsx',
   output: {
     filename: 'app.js',
@@ -15,15 +21,16 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         },
-        exclude: /node_modules/
+        include: [resolve('src')]
       },
     ]
   },
   resolve: {
-    extensions: ['.ts', '.js', '.sass', '.css'],
+    extensions: ['.ts', 'tsx', '.js', 'jsx', '.sass', '.css'],
     alias: {
-      '@core': path.resolve(__dirname, 'core/'),
-      '@pages': path.resolve(__dirname, 'pages/')
+      // '@core': resolve('src/core/'),
+      // '@pages': resolve('src/pages/'),
+      '@': resolve('src')
     }
   },
   devServer: {

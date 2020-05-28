@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { render } from 'react-dom'
-import Index from './pages/index/index.tsx'
+import shuangSeQiu from '@/core/ball'
+// import Index from '@/pages/index'
 
-render(<Index/>, document.getElementById('app'))
+console.log(shuangSeQiu())
+
+// render(<Index/>, document.getElementById('app'))
