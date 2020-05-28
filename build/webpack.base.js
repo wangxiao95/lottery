@@ -26,7 +26,7 @@ module.exports = {
     ]
   },
   resolve: {
-    extensions: ['.ts', 'tsx', '.js', 'jsx', '.sass', '.css'],
+    extensions: ['.ts', '.tsx', '.js', 'jsx', '.sass', '.css'],
     alias: {
       // '@core': resolve('src/core/'),
       // '@pages': resolve('src/pages/'),
@@ -38,7 +38,7 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
-    open: 'Google Chrome',
+    // open: 'Google Chrome',
   },
   plugins: [
     new HtmlWebpackPlugin({template: './src/index.html'})
