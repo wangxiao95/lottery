@@ -1,17 +1,20 @@
 import React from 'react'
-import { BallColor } from '../constants'
+import {BallColor} from '../constants'
 
 interface Props {
+  key: number
   color?: BallColor
   number?: number
   size: number
+  canClick: boolean
+  clickCallbak: Function
 }
 
 export default class Ball extends React.Component {
   constructor(props: Props) {
-    super()
+    super(props)
     this.state = {
-
+      color: BallColor.transparent
     }
   }
 
@@ -22,8 +25,19 @@ export default class Ball extends React.Component {
     }
   }
 
+  onBallClick = () => {
+    const isSelected = this.state.color === this.props.color
+    if (!isSelected && !this.props.canClick) {
+      return
+    }
+    this.setState({
+      color: isSelected ? BallColor.transparent : this.props.color
+    })
+    this.props.clickCallbak(this.props.number, !isSelected)
+  }
+
   render() {
-    const css = `ball is-${ this.props.color }`
-    return <div className={ css } style={ this.styles() }>{ this.props.number }</div>
+    const css = `ball is-${ this.state.color }`
+    return <a className={ css } style={ this.styles() } onClick={this.onBallClick}>{ this.props.number }</a>
   }
 }

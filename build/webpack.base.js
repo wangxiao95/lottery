@@ -35,6 +35,15 @@ module.exports = {
 
         }],
       },
+      {
+        test: /\.(png|jpg|gif|jpeg)$/,
+        use: "url-loader?limit=8192&name=images/[hash:8].[name].[ext]",
+      },
+      {
+        test:/\.html$/,
+        // 处理HTML文件的img图片（负责引入img，从而能被url-loader处理）
+        loader:'html-loader'
+      }
     ]
   },
   resolve: {
@@ -46,9 +55,11 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000,
-    open: 'Google Chrome',
+    open: true,
   },
   plugins: [
-    new HtmlWebpackPlugin({template: './src/index.html'})
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: './src/index.html'})
   ]
 }
