@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
-import Header from './components/Header'
+import Page from './components/Layout'
+import './styles/index.less'
 
 function Index() {
-  return <Header></Header>
+  return <Page></Page>
 }
 
 export default Index

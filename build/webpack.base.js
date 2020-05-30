@@ -1,8 +1,9 @@
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin') // 通过 npm 安装
 const webpack = require('webpack') // 用于访问内置插件
+const aliasConfig = require('./webstrom.webpack.config')
 
-function resolve (dir) {
+function resolve(dir) {
   return path.join(__dirname, '..', dir)
 }
 
@@ -23,15 +24,22 @@ module.exports = {
         },
         include: [resolve('src')]
       },
+      {
+        test: /\.css|less?$/,
+        use: [{
+          loader: "style-loader" // creates style nodes from JS strings
+        }, {
+          loader: "css-loader" // translates CSS into CommonJS
+        }, {
+          loader: "less-loader", // compiles Less to CSS
+
+        }],
+      },
     ]
   },
   resolve: {
-    extensions: ['.ts', '.tsx', '.js', 'jsx', '.sass', '.css'],
-    alias: {
-      // '@core': resolve('src/core/'),
-      // '@pages': resolve('src/pages/'),
-      '@': resolve('src')
-    }
+    extensions: ['.tsx', '.ts', '.js', 'jsx', '.sass', '.css'],
+    alias: aliasConfig,
   },
   devServer: {
     hot: true,
