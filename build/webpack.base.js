@@ -63,5 +63,11 @@ module.exports = {
     new HtmlWebpackPlugin({
       filename: 'index.html',
       template: './src/index.html'})
-  ]
+  ],
+  optimization: {
+    splitChunks: {
+      chunks: "async",   // 共有3个值"initial"，"async"和"all"。配置后，代码分割优化仅选择初始块，按需块或所有块
+      maxSize: 1024 * 5 * 100
+    }
+  }
 }
