@@ -11,10 +11,6 @@ function resolve(dir) {
 module.exports = {
   context: path.resolve(__dirname, '../'),
   entry: './src/index.tsx',
-  output: {
-    filename: 'app.js',
-    path: path.resolve(__dirname, '../dist'),
-  },
   module: {
     rules: [
       {
@@ -46,11 +42,17 @@ module.exports = {
       }
     ]
   },
+  externals: {
+    'moment': 'moment',
+    'lodash': '_',
+
+  },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', 'jsx', '.sass', '.css'],
     alias: aliasConfig,
   },
   devServer: {
+    host: '0.0.0.0',
     hot: true,
     contentBase: path.join(__dirname, 'dist'),
     compress: true,

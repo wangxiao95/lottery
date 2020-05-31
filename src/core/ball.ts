@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 interface Range {
   start: number
   end: number
@@ -5,16 +7,16 @@ interface Range {
 
 interface Result {
   red: number[]
-  blue: number
+  blue: number[]
 }
 
 class Ball {
-  baseBlue: number
+  baseBlue: number[]
   baseRed: number[]
   redCount: number = 6
   blueCount: number = 1
 
-  constructor(red: number[] = [], blue: number = null) {
+  constructor(red: number[] = [], blue: number[] = []) {
     this.baseBlue = blue
     this.baseRed = red
   }
@@ -25,12 +27,12 @@ class Ball {
     return Math.floor(Math.random() * end + start)
   }
 
-  getBlue(): number {
-    if (this.baseBlue) {
+  getBlue(): number[] {
+    if (!_.isEmpty(this.baseBlue)) {
       return this.baseBlue
     }
     //TODO
-    return this.getRandomNum({start: 1, end: 16} as Range)
+    return [this.getRandomNum({start: 1, end: 16} as Range)]
   }
 
   getRed(): number[] {
@@ -54,7 +56,7 @@ class Ball {
   }
 }
 
-const shuangSeQiu: Function = function (red: number[] = [], blue: number = null): Result {
+const shuangSeQiu: Function = function (red: number[] = [], blue: number[] = []): Result {
 
   const ball: Ball = new Ball(red, blue)
 

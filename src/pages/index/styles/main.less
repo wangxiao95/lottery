@@ -1,3 +1,42 @@
 .balls-block {
   display: flex;
 }
+
+.card-title {
+  color: @color-normal;
+  font-weight: 600;
+
+  img {
+    vertical-align: top;
+  }
+}
+
+.table-wrapper {
+  padding: 30px 24px;
+
+  &__title {
+    display: flex;
+    justify-content: space-between;
+    height: 40px;
+    line-height: 40px;
+    color: @color-normal;
+    font-weight: 600;
+    font-size: @size-middle;
+
+    .title-icon {
+      margin-right: 8px;
+      color: @color-red;
+    }
+  }
+}
+
+#copyText {
+  position: fixed;
+  left: -200px;
+}
+
+.custom-message {
+  font-size: @size-large;
+  color: @color-normal;
+  font-weight: 800;
+}

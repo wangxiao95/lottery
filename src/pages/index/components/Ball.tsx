@@ -6,6 +6,7 @@ interface Props {
   color?: BallColor
   number?: number
   size: number
+  realColor?: BallColor
   canClick: boolean
   clickCallbak: Function
 }
@@ -37,7 +38,7 @@ export default class Ball extends React.Component {
   }
 
   render() {
-    const css = `ball is-${ this.state.color }`
+    const css = `ball is-${ this.props.realColor || this.state.color }`
     return <a className={ css } style={ this.styles() } onClick={this.onBallClick}>{ this.props.number }</a>
   }
 }

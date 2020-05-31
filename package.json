@@ -7,7 +7,7 @@
     "dev": "webpack-dev-server --config ./build/webpack.dev.js",
     "prod": "webpack --config ./build/webpack.product.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "upload": "rsync -avz ./dist root@1.23.45.67:/home/api"
+    "upload": "rsync -avz ./dist root@39.105.86.124:/home/lottery"
   },
   "author": "",
   "license": "ISC",
