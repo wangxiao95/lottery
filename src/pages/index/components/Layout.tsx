@@ -1,5 +1,5 @@
-import React, {FC} from 'react'
-import {Layout} from 'antd'
+import React, { FC } from 'react'
+import { Layout } from 'antd'
 import Main from './Main'
 import Head from './Header'
 
@@ -8,9 +8,7 @@ const { Header, Footer, Sider, Content } = Layout
 export default class Page extends React.Component {
   constructor() {
     super()
-    this.state = {
-
-    }
+    this.state = {}
   }
 
   render() {
@@ -19,7 +17,7 @@ export default class Page extends React.Component {
       <Content className="page-content">
         <Main></Main>
       </Content>
-      {/*<Footer className="page-footer">Footer</Footer>*/}
+      {/*<Footer className="page-footer">Footer</Footer>*/ }
     </Layout>
   }
 }

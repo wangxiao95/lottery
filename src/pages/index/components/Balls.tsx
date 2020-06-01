@@ -1,5 +1,5 @@
 import React from 'react'
-import {BallColor} from '../constants'
+import { BallColor } from '../constants'
 import Ball from './Ball'
 import _ from 'lodash'
 
@@ -24,7 +24,7 @@ export default class Balls extends React.Component {
         return num + ''
       }),
       selectedNumbers: [],
-      isMax: false
+      isMax: false,
     }
   }
 
@@ -45,16 +45,16 @@ export default class Balls extends React.Component {
     numbers.sort()
     this.setState({
       selectedNumbers: numbers,
-      isMax: numbers.length >= this.props.maxCount
+      isMax: numbers.length >= this.props.maxCount,
     })
     this.props.updateCallback(this.state.selectedNumbers)
   }
 
   render() {
     return <div className="balls-box">
-      {_.map(this.state.numbers, (item, i) => {
-        return <Ball key={i} color={this.state.color} size={25} number={item} canClick={!this.state.isMax}
-                     clickCallbak={this.clickCallbak}></Ball>
+      { _.map(this.state.numbers, (item, i) => {
+        return <Ball key={ i } color={ this.state.color } size={ 25 } number={ item } canClick={ !this.state.isMax }
+                     clickCallbak={ this.clickCallbak }></Ball>
       }) }
     </div>
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {BallColor} from '../constants'
+import { BallColor } from '../constants'
 
 interface Props {
   key: number
@@ -15,7 +15,7 @@ export default class Ball extends React.Component {
   constructor(props: Props) {
     super(props)
     this.state = {
-      color: BallColor.transparent
+      color: BallColor.transparent,
     }
   }
 
@@ -32,13 +32,13 @@ export default class Ball extends React.Component {
       return
     }
     this.setState({
-      color: isSelected ? BallColor.transparent : this.props.color
+      color: isSelected ? BallColor.transparent : this.props.color,
     })
     this.props.clickCallbak(this.props.number, !isSelected)
   }
 
   render() {
     const css = `ball is-${ this.props.realColor || this.state.color }`
-    return <a className={ css } style={ this.styles() } onClick={this.onBallClick}>{ this.props.number }</a>
+    return <a className={ css } style={ this.styles() } onClick={ this.onBallClick }>{ this.props.number }</a>
   }
 }
